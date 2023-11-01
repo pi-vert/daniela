@@ -27,7 +27,7 @@ def pcaMove(motor,angle1,angle2):
         angle=angle1;
         while angle < angle2:
             pca.servo[motor].angle = angle
-            angle++
+            angle = angle + 1
     else:
         pca.servo[motor].angle=None #disable channel
 
