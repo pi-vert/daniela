@@ -11,7 +11,7 @@ display = drivers.Lcd()
 IP = check_output(["hostname", "-I"], encoding="utf8").split()[0]
 now = time.time()
 hour, minute, second = time.strftime('%H'), time.strftime('%M'), time.strftime('%S')
-display.lcd_display_string(hour+':'+minute+' | '+str(IP), 1)
+display.lcd_display_string(hour+':'+minute+' '+str(IP), 1)
 
 # Temperature
 temp=check_output(["vcgencmd", "measure_temp"], encoding="utf8")
@@ -25,4 +25,4 @@ print("The CPU usage is : ", cpu_usage)
 # Memoire utilisée
 mem_usage = psutil.virtual_memory()[2]
 
-display.lcd_display_string('CPU: '+str(round(cpu_usage))+'% | Memory:'+str(round(mem_usage))+'%',4)
+display.lcd_display_string('CPU:'+str(round(cpu_usage))+'% | Memory:'+str(round(mem_usage))+'%',4)
