@@ -48,6 +48,10 @@ def main():
     while true:
         pcaMove(2,70,120);
         pcaMove(2,120,70);
+        pcaMove(2,70,120);
+        pcaMove(2,120,70);
+        pcaMove(2,70,120);
+        pcaMove(2,120,70);
 
 if __name__ == '__main__':
     init()
