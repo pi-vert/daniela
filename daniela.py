@@ -38,19 +38,25 @@ def pcaMove(motor,angle1,angle2):
 def init():
     for i in range(nbPCAServo):
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
-    pcaSet(0,90);
-    pcaSet(1,90);
+    pcaSet(3,30);
     pcaSet(2,70);
-    pcaSet(3,10);
+    pcaSet(1,90);
+    pcaSet(0,90);
     
 # function main
 def main():
-    pcaMove(2,70,120);
-    pcaMove(2,120,70);
-    pcaMove(2,70,120);
-    pcaMove(2,120,70);
-    pcaMove(2,70,120);
-    pcaMove(2,120,70);
+    # Mouvement hésitation
+    pcaMove(3,40,30);
+    pcaMove(3,30,40);
+    pcaMove(3,40,30);
+    pcaMove(3,30,40);
+    
+    pcaMove(2,70,100);
+    pcaMove(2,100,70);
+    pcaMove(2,70,100);
+    pcaMove(2,100,70);
+    pcaMove(2,70,100);
+    pcaMove(2,100,70);
 
 if __name__ == '__main__':
     init()
