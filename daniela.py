@@ -21,7 +21,14 @@ def init():
 def main():
     pcaMove(int(sys.argv[1]),int(sys.argv[2]),int(sys.argv[3]));
 
-# function pcaScenario
+# Set
+def pcaMove(motor,angle):
+    if (angle >= MIN_ANG[motor] and angle <= MAX_ANG[motor]):
+        pca.servo[motor].angle = angle
+    else:
+        pca.servo[motor].angle=None #disable channel
+        
+# Deplacement
 def pcaMove(motor,angle1,angle2):
     angle=angle1;
     while angle < angle2:
