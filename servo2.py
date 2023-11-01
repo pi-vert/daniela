@@ -19,19 +19,19 @@ def init():
 
 # function main
 def main():
-    pcaMove(int(sys.argv[1]),int(sys.argv[2]),int(sys.argv[3]));
+    pcaMove(int(sys.argv[1]),int(sys.argv[2]),int(sys.argv[3],int(sys.argv[4]));
 
 # function pcaScenario
-def pcaMove(motor,angle1,angle2):
+def pcaMove(motor,angle1,angle2,sleep):
     angle=angle1;
     while angle < angle2:
         pca.servo[motor].angle = angle
-        angle = angle + 1
-        time.sleep(0.05)
+        angle = angle + 0.01
+        time.sleep(sleep)
     while angle > angle1:
         pca.servo[motor].angle = angle
-        angle = angle - 1
-        time.sleep(0.05)
+        angle = angle - 0.01
+        time.sleep(sleep)
 
 if __name__ == '__main__':
     init()
