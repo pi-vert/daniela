@@ -5,11 +5,12 @@ from datetime import datetime
 from subprocess import check_output
 import psutil
 display = drivers.Lcd()
-display.lcd_display_string(, 1)
 
 # Adress IP
 IP = check_output(["hostname", "-I"], encoding="utf8").split()[0]
-display.lcd_display_string(str(datetime.now().hour())+':'+str(datetime.now().minute())+' '+str(IP), 1)
+now = time.time()
+hour, minute, second = time.strftime('%H'), time.strftime('%M'), time.strftime('%S')
+display.lcd_display_string(hour+':'+minute+' | '+str(IP), 1)
 
 # Temperature
 temp=check_output(["vcgencmd", "measure_temp"], encoding="utf8")
