@@ -19,7 +19,7 @@ def init():
 
 # function main
 def main():
-    pcaMove(int(sys.argv[1]),int(sys.argv[2],int(sys.argv[3]));
+    pcaMove(int(sys.argv[1]),int(sys.argv[2]),int(sys.argv[3]));
 
 # function pcaScenario
 def pcaMove(motor,angle1,angle2):
