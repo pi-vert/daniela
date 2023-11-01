@@ -58,21 +58,21 @@ def init():
 # function main
 def main():
     # Mouvement hésitation
-    pcaRun(3,30,80,0.05);
-    pcaRun(3,30,65,0.05);
-    pcaRun(3,30,50,0.05);
+    pcaRun(3,30,80,0.005);
+    pcaRun(3,30,65,0.005);
+    pcaRun(3,30,50,0.005);
 
-    pcaRun(2,70,100,0.05);
-    pcaRun(2,70,100,0.05);
-    pcaRun(2,70,100,0.05);
+    pcaRun(2,70,100,0.005);
+    pcaRun(2,70,100,0.005);
+    pcaRun(2,70,100,0.005);
 
-    pcaRun(2,75,95,0.04);
-    pcaRun(2,75,95,0.03);
-    pcaRun(2,75,95,0.02);
+    pcaRun(2,75,95,0.004);
+    pcaRun(2,75,95,0.003);
+    pcaRun(2,75,95,0.002);
 
-    pcaRun(2,80,90,0.005);
-    pcaRun(2,80,90,0.005);
-    pcaRun(2,80,90,0.005);
+    pcaRun(2,80,90,0.0005);
+    pcaRun(2,80,90,0.0005);
+    pcaRun(2,80,90,0.0005);
 
 if __name__ == '__main__':
     init()
