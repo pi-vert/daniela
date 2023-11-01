@@ -28,8 +28,8 @@ def pcaMove(motor,angle1,angle2):
             angle = angle + 1
             time.sleep(0.05)
     else:
-        angle = angle2
-        while angle > angle1:
+        angle = angle1
+        while angle > angle2:
             pca.servo[motor].angle = angle
             angle = angle - 1
             time.sleep(0.05)
