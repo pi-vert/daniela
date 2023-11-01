@@ -61,18 +61,18 @@ def main():
     pcaRun(3,30,80,0.05);
     pcaRun(3,30,65,0.05);
     pcaRun(3,30,50,0.05);
-    time.sleep(1)
-    pcaRun(2,70,100,0.01);
-    pcaRun(2,70,100,0.01);
-    pcaRun(2,70,100,0.01);
-    time.sleep(1)
+
     pcaRun(2,70,100,0.05);
     pcaRun(2,70,100,0.05);
     pcaRun(2,70,100,0.05);
-    time.sleep(1)
-    pcaRun(2,70,100,0.005);
-    pcaRun(2,70,100,0.005);
-    pcaRun(2,70,100,0.005);
+
+    pcaRun(2,60,90,0.01);
+    pcaRun(2,60,90,0.01);
+    pcaRun(2,60,90,0.01);
+
+    pcaRun(2,50,80,0.005);
+    pcaRun(2,50,80,0.005);
+    pcaRun(2,50,80,0.005);
 
 if __name__ == '__main__':
     init()
