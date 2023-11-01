@@ -58,10 +58,9 @@ def init():
 # function main
 def main():
     # Mouvement hésitation
-    pcaMove(3,40,30);
-    pcaMove(3,30,40);
-    pcaMove(3,40,30);
-    pcaMove(3,30,40);
+    pcaRun(3,30,50);
+    pcaRun(3,30,50);
+    pcaRun(3,30,50);
     
     pcaRun(2,70,100);
     pcaRun(2,70,100);
