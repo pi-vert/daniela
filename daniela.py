@@ -34,6 +34,18 @@ def pcaMove(motor,angle1,angle2):
             angle = angle - 1
             time.sleep(0.05)
 
+# Deplacement
+def pcaRun(motor,angle1,angle2):
+    angle = angle1
+    while angle < angle2:
+        pca.servo[motor].angle = angle
+        angle = angle + 1
+        time.sleep(0.05)
+    while angle > angle1:
+        pca.servo[motor].angle = angle
+        angle = angle - 1
+        time.sleep(0.05)
+
 # function init
 def init():
     for i in range(nbPCAServo):
@@ -51,12 +63,9 @@ def main():
     pcaMove(3,40,30);
     pcaMove(3,30,40);
     
-    pcaMove(2,70,100);
-    pcaMove(2,100,70);
-    pcaMove(2,70,100);
-    pcaMove(2,100,70);
-    pcaMove(2,70,100);
-    pcaMove(2,100,70);
+    pcaRun(2,70,100);
+    pcaRun(2,70,100);
+    pcaRun(2,70,100);
 
 if __name__ == '__main__':
     init()
