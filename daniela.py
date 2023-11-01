@@ -52,7 +52,7 @@ def init():
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
     pcaSet(3,30);
     pcaSet(2,70);
-    pcaSet(1,90);
+    pcaSet(1,45);
     pcaSet(0,90);
     
 # function main
