@@ -35,16 +35,16 @@ def pcaMove(motor,angle1,angle2):
             time.sleep(0.05)
 
 # Deplacement
-def pcaRun(motor,angle1,angle2):
+def pcaRun(motor,angle1,angle2,speed):
     angle = angle1
     while angle < angle2:
         pca.servo[motor].angle = angle
         angle = angle + 1
-        time.sleep(0.05)
+        time.sleep(speed)
     while angle > angle1:
         pca.servo[motor].angle = angle
         angle = angle - 1
-        time.sleep(0.05)
+        time.sleep(speed)
 
 # function init
 def init():
@@ -58,13 +58,13 @@ def init():
 # function main
 def main():
     # Mouvement hésitation
-    pcaRun(3,30,50);
-    pcaRun(3,30,50);
-    pcaRun(3,30,50);
+    pcaRun(3,30,50,0.05);
+    pcaRun(3,30,50,0.05);
+    pcaRun(3,30,50,0.05);
     
-    pcaRun(2,70,100);
-    pcaRun(2,70,100);
-    pcaRun(2,70,100);
+    pcaRun(2,70,100,0.01);
+    pcaRun(2,70,100,0.01);
+    pcaRun(2,70,100,0.01);
 
 if __name__ == '__main__':
     init()
