@@ -23,13 +23,10 @@ def main():
 
 # function pcaScenario
 def pcaMove(motor,angle1,angle2):
-    if (angle >= MIN_ANG[motor] and angle <= MAX_ANG[motor]):
-        angle=angle1;
-        while angle < angle2:
-            pca.servo[motor].angle = angle
-            angle = angle + 1
-    else:
-        pca.servo[motor].angle=None #disable channel
+    angle=angle1;
+    while angle < angle2:
+        pca.servo[motor].angle = angle
+        angle = angle + 1
 
 if __name__ == '__main__':
     init()
