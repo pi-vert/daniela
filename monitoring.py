@@ -23,4 +23,4 @@ print("The CPU usage is : ", cpu_usage)
 # Memoire utilisée
 mem_usage = psutil.virtual_memory()[2]
 
-display.lcd_display_string('CPU: '+str(cpu_usage)+'% | Memory:'+str(cpu_usage)+'%',4)
+display.lcd_display_string('CPU: '+str(round(cpu_usage))+'% | Memory:'+str(round(mem_usage))+'%',4)
