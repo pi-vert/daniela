@@ -39,11 +39,11 @@ def pcaRun(motor,angle1,angle2,speed):
     angle = angle1
     while angle < angle2:
         pca.servo[motor].angle = angle
-        angle = angle + 1
+        angle = angle + 0.1
         time.sleep(speed)
     while angle > angle1:
         pca.servo[motor].angle = angle
-        angle = angle - 1
+        angle = angle - 0.1
         time.sleep(speed)
 
 # function init
@@ -66,13 +66,13 @@ def main():
     pcaRun(2,70,100,0.05);
     pcaRun(2,70,100,0.05);
 
-    pcaRun(2,60,90,0.01);
-    pcaRun(2,60,90,0.01);
-    pcaRun(2,60,90,0.01);
+    pcaRun(2,75,95,0.04);
+    pcaRun(2,75,95,0.03);
+    pcaRun(2,75,95,0.02);
 
-    pcaRun(2,50,80,0.005);
-    pcaRun(2,50,80,0.005);
-    pcaRun(2,50,80,0.005);
+    pcaRun(2,80,90,0.005);
+    pcaRun(2,80,90,0.005);
+    pcaRun(2,80,90,0.005);
 
 if __name__ == '__main__':
     init()
