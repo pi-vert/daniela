@@ -41,7 +41,7 @@ def init():
     pcaSet(0,90);
     pcaSet(1,90);
     pcaSet(2,70);
-    pcaSet(3,90);
+    pcaSet(3,10);
     
 # function main
 def main():
