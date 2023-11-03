@@ -60,10 +60,10 @@ def main():
     pcaSet(2,70);
     pcaSet(1,45);
     pcaSet(0,90);
-    pcaSet(3,None);
-    pcaSet(2,None);
-    pcaSet(1,None);
-    pcaSet(0,None);
+    pcaSet(3,-1);
+    pcaSet(2,-1);
+    pcaSet(1,-1);
+    pcaSet(0,-1);
     
 if __name__ == '__main__':
     init()
