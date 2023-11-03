@@ -26,18 +26,19 @@ def pcaStop(motor):
 # Deplacement
 def pcaMove(motor,angle1,angle2,step,sleep):
     if (angle1>angle2):
-        angleStart= angle2
-        angleStop = angle1
-        step = step * -1
+        angle = angle2
+        while (angle<=angle1):
+            print ( str(motor)+' '+str(angle) )
+            pca.servo[motor].angle = angle
+            angle = anhle - step
+            time.sleep(sleep)
     else:
-        angleStart= angle1
-        angleStop = angle2
-    angle = angleStart
-    while (angle<=angleStop):
-        print ( str(motor)+' '+str(angle) )
-        pca.servo[motor].angle = angle
-        angle += step
-        time.sleep(sleep)
+        angle = angle1
+        while (angle<=angle2):
+            print ( str(motor)+' '+str(angle) )
+            pca.servo[motor].angle = angle
+            angle = angle + step
+            time.sleep(sleep)
 
 # Deplacement
 def pcaRun(motor,angle1,angle2,speed):
