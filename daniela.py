@@ -113,13 +113,13 @@ def main():
     pcaMove(1, 45, 50, 0.01, 0.001)
     pcaMove(1, 50, 45, 0.01, 0.001)
 # pause
-    sleep(1)
+    time.sleep(1)
 # M1 : 1 petits mouvements 45 - 50 retour au centre 45
 # pause
-    sleep(1)
+    time.sleep(1)
 # M1 : 1 petits mouvements 45 - 50 retour au centre 45
 # pause
-    sleep(1)
+    time.sleep(1)
 # M3 : remonte à 30 brusquement
     pcaMove(3, 20, 30, 0.01, 0.001)
 # M3 : descend à 20 lentement (se pose sur la feuille)
@@ -177,17 +177,17 @@ def main():
     pcaMove(1, 45, 50, 0.01, 0.01)
     pcaMove(1, 50, 45, 0.01, 0.01)
 # pause
-    sleep(1)
+    time.sleep(1)
 # M1 : 1 petits mouvements 45 - 50 retour au centre 45
     pcaMove(1, 45, 50, 0.01, 0.01)
     pcaMove(1, 50, 45, 0.01, 0.01)
 # pause
-    sleep(1)
+    time.sleep(1)
 # M1 : 1 petits mouvements 45 - 50 retour au centre 45
     pcaMove(1, 45, 50, 0.01, 0.01)
     pcaMove(1, 50, 45, 0.01, 0.01)
 # pause
-    sleep(1)
+    time.sleep(1)
 # M3 : remonte à 30 brusquement
     pcaMove(3, 20, 30, 0.01, 0.001)
 # M3 : descend à 20 lentement (se pose sur la feuille)
@@ -298,7 +298,7 @@ def main():
     pcaMove(1, 45, 50, 0.01, 0.01)
     pcaMove(1, 50, 45, 0.01, 0.01)
 # pause
-    sleep(1)
+    time.sleep(1)
 # M1 : 2 grands mouvements 45 - 50 retour au centre 45
     pcaMove(1, 45, 50, 0.01, 0.01)
     pcaMove(1, 50, 45, 0.01, 0.01)
@@ -314,7 +314,7 @@ def main():
     pcaMove(1, 45, 50, 0.01, 0.01)
     pcaMove(1, 50, 45, 0.01, 0.01)
 # pause
-    sleep(1)
+    time.sleep(1)
 # M1 : 2 grands mouvements 40 - 50 retour au centre 45
     pcaMove(1, 40, 50, 0.01, 0.01)
     pcaMove(1, 50, 40, 0.01, 0.01)
@@ -332,8 +332,8 @@ def main():
     pcaMove(1, 50, 40, 0.01, 0.01)
     pcaMove(1, 40, 50, 0.01, 0.01)
     pcaMove(1, 50, 40, 0.01, 0.01)
-    # pause
-    sleep(1)
+# pause
+    time.sleep(1)
 # M1 : 2 petit mouvements 45 - 50   retour au centre 45
     pcaMove(1, 45, 50, 0.01, 0.01)
     pcaMove(1, 50, 45, 0.01, 0.01)
