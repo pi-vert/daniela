@@ -20,19 +20,12 @@ def pcaSet(motor,angle):
         pca.servo[motor].angle=None #disable channel
         
 # Deplacement
-def pcaMove(motor,angle1,angle2):
-    if (angle1 < angle2):
-        angle = angle1
-        while angle < angle2:
-            pca.servo[motor].angle = angle
-            angle = angle + 1
-            time.sleep(0.05)
-    else:
-        angle = angle1
-        while angle > angle2:
-            pca.servo[motor].angle = angle
-            angle = angle - 1
-            time.sleep(0.05)
+def pcaMove(motor,angle1,angle2,step,sleep):
+    angle = angle1
+    while angle < angle2:
+        pca.servo[motor].angle = angle
+        angle = angle + step
+        time.sleep(sleep)
 
 # Deplacement
 def pcaRun(motor,angle1,angle2,speed):
@@ -58,22 +51,20 @@ def init():
 # function main
 def main():
     # Mouvement hésitation
-    pcaRun(3,30,80,0.005);
-    pcaRun(3,30,65,0.005);
-    pcaRun(3,30,50,0.005);
+    pcaMove(3,30,80,0.1,0.005);
+    pcaMove(3,30,65,0.1,0.005);
+    pcaMove(3,30,50,0.1,0.005);
 
-    pcaRun(2,70,100,0.005);
-    pcaRun(2,70,100,0.005);
-    pcaRun(2,70,100,0.005);
-
-    pcaRun(2,75,95,0.004);
-    pcaRun(2,75,95,0.003);
-    pcaRun(2,75,95,0.002);
-
-    pcaRun(2,80,90,0.0005);
-    pcaRun(2,80,90,0.0005);
-    pcaRun(2,80,90,0.0005);
-
+# Stop: repos
+    pcaSet(3,30);
+    pcaSet(2,70);
+    pcaSet(1,45);
+    pcaSet(0,90);
+    pcaSet(3,None);
+    pcaSet(2,None);
+    pcaSet(1,None);
+    pcaSet(0,None);
+    
 if __name__ == '__main__':
     init()
     main()
