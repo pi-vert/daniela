@@ -19,7 +19,6 @@ def pcaSet(motor,angle):
     if (angle > MAX_ANG[motor]):
         angle = MIN_ANG[motor]        
     pca.servo[motor].angle = angle
-    else:
 
 def pcaStop(motor):
     pca.servo[motor].angle=None #disable channel
