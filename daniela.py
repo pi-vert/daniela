@@ -60,7 +60,7 @@ def main():
     pcaSet(2,70)
     pcaSet(1,45)
     pcaSet(0,45)
-    sleep(1)
+    time.sleep(1)
 # M3  : commence à 100
     pcaMove(3, 10, 80, 0.01, 0.001)
 # M3 : descend à 30 lentement
