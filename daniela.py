@@ -8,24 +8,34 @@ nbPCAServo=16
 MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
+MAX_ANG  =[180, 180, 80, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
 
 # Set
 def pcaSet(motor,angle):
-    if (angle >= MIN_ANG[motor] and angle <= MAX_ANG[motor]):
-        pca.servo[motor].angle = angle
+    if (angle < MIN_ANG[motor]):
+        angle = MIN_ANG[motor]
+    if (angle > MAX_ANG[motor]):
+        angle = MIN_ANG[motor]        
+    pca.servo[motor].angle = angle
     else:
-        pca.servo[motor].angle=None #disable channel
+
+def pcaStop(motor):
+    pca.servo[motor].angle=None #disable channel
         
 # Deplacement
 def pcaMove(motor,angle1,angle2,step,sleep):
-    angle = angle1
-    while angle < angle2:
+    if (angle1>angle2):
+        angleStart= angle2
+        angleStop = angle1
+        step = step * -1
+    else:
+        angleStart= angle1
+        angleStop = angle2
+    for angle (angleStart, angleStop, step):
         print ( str(motor)+' '+str(angle) )
         pca.servo[motor].angle = angle
-        angle = angle + step
         time.sleep(sleep)
 
 # Deplacement
@@ -33,38 +43,334 @@ def pcaRun(motor,angle1,angle2,speed):
     angle = angle1
     while angle < angle2:
         pca.servo[motor].angle = angle
-        angle = angle + 0.1
+        angle = angle + 0.01
         time.sleep(speed)
     while angle > angle1:
         pca.servo[motor].angle = angle
-        angle = angle - 0.1
+        angle = angle - 0.01
         time.sleep(speed)
 
 # function init
 def init():
     for i in range(nbPCAServo):
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
-    pcaSet(3,10);
-    pcaSet(2,70);
-    pcaSet(1,45);
-    pcaSet(0,45);
     
 # function main
 def main():
-    # Mouvement hésitation
-    pcaMove(3,30,80,0.1,0.005);
-    pcaMove(3,30,65,0.1,0.005);
-    pcaMove(3,30,50,0.1,0.005);
+    pcaSet(3,10)
+    pcaSet(2,70)
+    pcaSet(1,45)
+    pcaSet(0,45)
+    sleep(1)
+# M3  : commence à 100
+    pcaMove(3, 10, 80, 0.01, 0.001)
+# M3 : descend à 30 lentement
+    pcaMove(3, 80, 30, 0.01, 0.01)
+# M3 : 3 petits mouvements de bas en haut 30 - 60  - se bloque à 60
+    pcaMove(3, 30, 60, 0.01, 0.001)
+    pcaMove(3, 60, 30, 0.01, 0.001)
+    pcaMove(3, 30, 60, 0.01, 0.001)
+    pcaMove(3, 60, 30, 0.01, 0.001)
+    pcaMove(3, 30, 60, 0.01, 0.001)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 100, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 100, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 100, 90, 0.01, 0.001)
+# M3 : descend à 30 lentement
+    pcaMove(3, 60, 30, 0.01, 0.01)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 100, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 100, 90, 0.01, 0.001)
+# M3  : remonte brusquement à 100
+    pcaMove(3, 30, 80, 0.01, 0.0001)
+# M2 : 2 petits mouvements lent de 80 à 110 - revient à 90 (centre)
+    pcaMove(2, 80, 110, 0.01, 0.001)
+    pcaMove(2, 110, 80, 0.01, 0.001)
+    pcaMove(2, 80, 110, 0.01, 0.001)
+    pcaMove(2, 110, 80, 0.01, 0.001)
+    pcaMove(2, 80, 90, 0.01, 0.001)
+# M3 : descend à 45 lentement
+    pcaMove(3, 80, 45, 0.01, 0.001)
+# M1 : 2 petits mouvements 40 - 50 retour au centre 45
+    pcaMove(1, 40, 50, 0.01, 0.001)
+    pcaMove(1, 50, 40, 0.01, 0.001)
+    pcaMove(1, 40, 45, 0.01, 0.001)
+# M3 : descend à 35 lentement
+    pcaMove(3, 45, 35, 0.01, 0.01)
+# M1 : 2 petits mouvements 40 - 50 retour au centre 45
+    pcaMove(1, 40, 50, 0.01, 0.001)
+    pcaMove(1, 50, 40, 0.01, 0.001)
+    pcaMove(1, 40, 50, 0.01, 0.001)
+    pcaMove(1, 50, 40, 0.01, 0.001)
+    pcaMove(1, 40, 45, 0.01, 0.001)
+# M3 : descend à 20 lentement (se pose sur la feuille)
+    pcaMove(3, 35, 20, 0.01, 0.001)
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.001)
+    pcaMove(1, 50, 45, 0.01, 0.001)
+# pause
+    sleep(1)
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+# pause
+    sleep(1)
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+# pause
+    sleep(1)
+# M3 : remonte à 30 brusquement
+    pcaMove(3, 20, 30, 0.01, 0.001)
+# M3 : descend à 20 lentement (se pose sur la feuille)
+    pcaMove(3, 30, 20, 0.01, 0.001)
+# M3 : remonte à 40 brusquement
+    pcaMove(3, 20, 40, 0.01, 0.001)
+# M3 : descend à 30 lentement 
+    pcaMove(3, 40, 30, 0.01, 0.1)
+# M3 : remonte à 60 brusquement
+    pcaMove(3, 30, 60, 0.01, 0.001)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+    pcaMove(2, 90, 110, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+# M3 : descend à 40 lentement 
+    pcaMove(3, 60, 40, 0.01, 0.1)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+    pcaMove(2, 90, 100, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+# M3 : descend à 30 lentement 
+    pcaMove(3, 60, 30, 0.01, 0.1)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+    pcaMove(2, 90, 110, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+# M3 : remonte à 40 brusquement
+    pcaMove(3, 30, 40, 0.01, 0.001)
+# M1: 2 Grand balayement de gauche à droite 35- 55 retour au centre
+    pcaMove(1, 35, 55, 0.01, 0.01)
+    pcaMove(1, 55, 35, 0.01, 0.01)
+    pcaMove(1, 35, 55, 0.01, 0.01)
+    pcaMove(1, 55, 35, 0.01, 0.01)
+# M3 : remonte à 60 brusquement
+    pcaMove(3, 40, 60, 0.01, 0.001)
+# M1: 2 Grand balayement de gauche à droite 35- 55 retour au centre
+    pcaMove(1, 35, 55, 0.01, 0.01)
+    pcaMove(1, 55, 35, 0.01, 0.01)
+    pcaMove(1, 35, 55, 0.01, 0.01)
+    pcaMove(1, 55, 35, 0.01, 0.01)
+    pcaMove(1, 35, 45, 0.01, 0.01)
+# M3 : descend à 30 lentement
+    pcaMove(3, 60, 30, 0.01, 0.1)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+    pcaMove(2, 90, 110, 0.01, 0.01)
+    pcaMove(2, 110, 90, 0.01, 0.01)
+# M3 : descend à 20 lentement (se pose sur la feuille)
+    pcaMove(3, 30, 20, 0.01, 0.1)
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# pause
+    sleep(1)
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# pause
+    sleep(1)
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# pause
+    sleep(1)
+# M3 : remonte à 30 brusquement
+    pcaMove(3, 20, 30, 0.01, 0.001)
+# M3 : descend à 20 lentement (se pose sur la feuille)
+    pcaMove(3, 30, 20, 0.01, 0.1)
+# M3 : remonte à 40 brusquement
+    pcaMove(3, 20, 40, 0.01, 0.001)
+# M3 : descend à 30 lentement 
+    pcaMove(3, 40, 30, 0.01, 0.1)
+# M3 : remonte à 60 brusquement
+    pcaMove(3, 30, 60, 0.01, 0.001)
+# M3 : descend à 30 lentement 
+    pcaMove(3, 60, 30, 0.01, 0.1)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+# M3 : remonte à 70 brusquement
+    pcaMove(3, 60, 70, 0.01, 0.001)
+# M3 : descend à 25 lentement 
+    pcaMove(3, 70, 25, 0.01, 0.1)
+# M3 : remonte à 80 brusquement
+    pcaMove(3, 25, 80, 0.01, 0.001)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M3 : descend à 30 lentement 
+    pcaMove(3, 80, 30, 0.01, 0.1)
+# M3 : remonte à 60 brusquement
+    pcaMove(3, 30, 60, 0.01, 0.001)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+# M3 : descend à 30 lentement 
+    pcaMove(3, 60, 30, 0.01, 0.1)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M3 : remonte à 80 brusquement
+    pcaMove(3, 30, 80, 0.01, 0.001)
+# M3 : descend à 40 brusquement
+    pcaMove(3, 80, 40, 0.01, 0.001)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M3 : remonte à 80 brusquement
+    pcaMove(3, 40, 80, 0.01, 0.001)
+# M3 : descend à 30 brusquement
+    pcaMove(3, 80, 30, 0.01, 0.001)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M3 : remonte à 45 brusquement
+    pcaMove(3, 30, 45, 0.01, 0.001)
+# M3 : descend à 30 brusquement
+    pcaMove(3, 45, 30, 0.01, 0.001)
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+    pcaMove(2, 90, 110, 0.01, 0.001)
+    pcaMove(2, 110, 90, 0.01, 0.001)
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M3 : descend à 20 brusquement sur la feuille
+    pcaMove(3, 30, 20, 0.01, 0.001)
+# M1 : 2 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# pause
+    sleep(1)
+# M1 : 2 grands mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M3 : remonte à 30 brusquement
+    pcaMove(3, 20, 30, 0.01, 0.001)
+# M3 : descend à 20 brusquement sur la feuille
+    pcaMove(3, 30, 20, 0.01, 0.001)
+# M1 : 2 petits mouvements 45 - 50 retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# pause
+    sleep(1)
+# M1 : 2 grands mouvements 40 - 50 retour au centre 45
+    pcaMove(1, 40, 50, 0.01, 0.01)
+    pcaMove(1, 50, 40, 0.01, 0.01)
+    pcaMove(1, 40, 50, 0.01, 0.01)
+    pcaMove(1, 50, 40, 0.01, 0.01)
+# M1 : 3 grands mouvements 45 - 55 retour au centre 45
+    pcaMove(1, 45, 55, 0.01, 0.01)
+    pcaMove(1, 55, 45, 0.01, 0.01)
+    pcaMove(1, 45, 55, 0.01, 0.01)
+    pcaMove(1, 55, 45, 0.01, 0.01)
+    pcaMove(1, 45, 55, 0.01, 0.01)
+    pcaMove(1, 55, 45, 0.01, 0.01)
+# M1 : 2 grands mouvements 40 - 50 retour au centre 45
+    pcaMove(1, 40, 50, 0.01, 0.01)
+    pcaMove(1, 50, 40, 0.01, 0.01)
+    pcaMove(1, 40, 50, 0.01, 0.01)
+    pcaMove(1, 50, 40, 0.01, 0.01)
+    # pause
+    sleep(1)
+# M1 : 2 petit mouvements 45 - 50   retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M1 : 2 grands mouvements 40 - 50 retour au centre 45
+    pcaMove(1, 40, 50, 0.01, 0.01)
+    pcaMove(1, 50, 40, 0.01, 0.01)
+    pcaMove(1, 40, 50, 0.01, 0.01)
+    pcaMove(1, 50, 40, 0.01, 0.01)
+# M1 : 3 grands mouvements 45 - 55 retour au centre 45
+    pcaMove(1, 45, 55, 0.01, 0.01)
+    pcaMove(1, 55, 45, 0.01, 0.01)
+    pcaMove(1, 45, 55, 0.01, 0.01)
+    pcaMove(1, 55, 45, 0.01, 0.01)
+    pcaMove(1, 45, 55, 0.01, 0.01)
+    pcaMove(1, 55, 45, 0.01, 0.01)
+# M1 : 2 petit mouvements  45 - 50   retour au centre 45
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+    pcaMove(1, 45, 50, 0.01, 0.01)
+    pcaMove(1, 50, 45, 0.01, 0.01)
+# M3 : remonte à 30 brusquement
+    pcaMove(3, 20, 30, 0.01, 0.001)
+# M3 : descend à 20 brusquement sur la feuille
+    pcaMove(3, 30, 20, 0.01, 0.001)
 
 # Stop: repos
     pcaSet(3,10);
     pcaSet(2,70);
     pcaSet(1,45);
     pcaSet(0,45);
-    pcaSet(3,-1);
-    pcaSet(2,-1);
-    pcaSet(1,-1);
-    pcaSet(0,-1);
+    pcaStop(3);
+    pcaStop(2);
+    pcaStop(1);
+    pcaStop(0);
     
 if __name__ == '__main__':
     init()
