@@ -62,6 +62,7 @@ def init():
 
 def scenario():
     step = 0.03
+    pcaMove(0, 90, 90, step, 1)
 # M3  : commence à 100
     pcaMove(3, 0, 70, step, 1)
 # M3 : descend à 30 lentement
