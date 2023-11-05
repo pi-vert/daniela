@@ -16,11 +16,12 @@ pca = ServoKit(channels=16)
 
 # Set
 def pcaSet(motor,angle):
+    angle = angle + REF_ANG[motor]
     if (angle < MIN_ANG[motor]):
         angle = MIN_ANG[motor]
     if (angle > MAX_ANG[motor]):
         angle = MIN_ANG[motor]        
-    pca.servo[motor].angle = angle + REF_ANG[motor]
+    pca.servo[motor].angle = angle
 
 def pcaStop(motor):
     pca.servo[motor].angle = REF_ANG[motor]
@@ -375,22 +376,17 @@ def scenario():
 # M3 : descend à 20 brusquement sur la feuille
     pcaMove(3, 20, 0, step, 2)
 
-def stop():
-    pcaStop(3);
-    pcaStop(2);
-    pcaStop(1);
-    pcaStop(0);
-    
 # function main
 def main():
-    pcaSet(3,50);
     pcaSet(0,0);
     pcaSet(1,0);
     pcaSet(2,0);
     pcaSet(3,0);
-    time.sleep(1)
     scenario()
-    stop()    
+    pcaStop(3);
+    pcaStop(2);
+    pcaStop(1);
+    pcaStop(0);
     
 if __name__ == '__main__':
     init()
