@@ -378,10 +378,6 @@ def scenario():
     pcaMove(3, 20, 10, step, 0.001)
 
 def stop():
-    pcaSet(3,REF_ANG[3]);
-    pcaSet(2,REF_ANG[2);
-    pcaSet(1,REF_ANG[1);
-    pcaSet(0,REF_ANG[0);
     pcaStop(3);
     pcaStop(2);
     pcaStop(1);
@@ -390,11 +386,11 @@ def stop():
 # function main
 def main():
     pcaSet(3,REF_ANG[3]);
-    pcaSet(2,REF_ANG[2);
-    pcaSet(1,REF_ANG[1);
-    pcaSet(0,REF_ANG[0);
+    pcaSet(2,REF_ANG[2]);
+    pcaSet(1,REF_ANG[1]);
+    pcaSet(0,REF_ANG[0]);
     time.sleep(1)
-    stop()
+    scenario()
     
 if __name__ == '__main__':
     init()
