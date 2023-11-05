@@ -63,7 +63,7 @@ def init():
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
 
 def scenario():
-    step = 0.01 
+    step = 0.01
 # M3  : commence à 100
     pcaMove(3, 0, 70, step, 1)
 # M3 : descend à 30 lentement
