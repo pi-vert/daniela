@@ -9,7 +9,7 @@ MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
 MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
-REF_ANG  =[80,90,70,15] 
+REF_ANG  =[80,90,70,30] 
 
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
@@ -383,7 +383,7 @@ def stop():
     
 # function main
 def main():
-    pcaSet(3,60);
+    pcaSet(3,80);
     pcaSet(0,REF_ANG[0]);
     pcaSet(1,REF_ANG[1]);
     pcaSet(2,REF_ANG[2]);
