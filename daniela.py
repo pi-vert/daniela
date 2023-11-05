@@ -74,7 +74,7 @@ def scenario():
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
 # M3  : remonte brusquement à 100
-    pcaMove(3, 0, 60,, 2)
+    pcaMove(3, 0, 60, 2)
 # M2 : 2 petits mouvements lent de 80 à 110 - revient à 90 (centre)
     pcaMove(2, -10, 20, 0)
     pcaMove(2, 20, -10, 0)
@@ -110,15 +110,15 @@ def scenario():
 # pause
     time.sleep(1)
 # M3 : remonte à 30 brusquement
-    pcaMove(3, 10, 20,, 2)
+    pcaMove(3, 10, 20, 2)
 # M3 : descend à 20 lentement (se pose sur la feuille)
     pcaMove(3, 10, 20, 0)
 # M3 : remonte à 40 brusquement
-    pcaMove(3, 10, 30,, 2)
+    pcaMove(3, 10, 30, 2)
 # M3 : descend à 30 lentement 
     pcaMove(3, 30, 20, 0)
 # M3 : remonte à 60 brusquement
-    pcaMove(3, 20, 50,, 2)
+    pcaMove(3, 20, 50, 2)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
@@ -139,7 +139,7 @@ def scenario():
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
 # M3 : remonte à 40 brusquement
-    pcaMove(3, 20, 30,, 2)
+    pcaMove(3, 20, 30, 2)
 # M1: 2 Grand balayement de gauche à droite 35- 55 retour au centre
     pcaMove(1, -10, 10, 1)
     pcaMove(1, 10, -10, 1)
@@ -147,7 +147,7 @@ def scenario():
     pcaMove(1, 10, -10, 1)
     pcaMove(1, -10, 0, 1)
 # M3 : remonte à 60 brusquement
-    pcaMove(3, 30, 50,, 2)
+    pcaMove(3, 30, 50, 2)
 # M1: 2 Grand balayement de gauche à droite 35- 55 retour au centre
     pcaMove(1, -10, 10, 1)
     pcaMove(1, 10, -10, 1)
@@ -183,11 +183,11 @@ def scenario():
 # M3 : descend à 20 lentement (se pose sur la feuille)
     pcaMove(3, 20, 10, 0)
 # M3 : remonte à 40 brusquement
-    pcaMove(3, 10, 30,, 2)
+    pcaMove(3, 10, 30, 2)
 # M3 : descend à 30 lentement 
     pcaMove(3, 30, 20, 0)
 # M3 : remonte à 60 brusquement
-    pcaMove(3, 20, 50,, 2)
+    pcaMove(3, 20, 50, 2)
 # M3 : descend à 30 lentement 
     pcaMove(3, 50, 20, 0)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
@@ -196,11 +196,11 @@ def scenario():
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
 # M3 : remonte à 70 brusquement
-    pcaMove(3, 50, 60,, 2)
+    pcaMove(3, 50, 60, 2)
 # M3 : descend à 25 lentement 
     pcaMove(3, 60, 15, 0)
 # M3 : remonte à 80 brusquement
-    pcaMove(3, 15, 70,, 2)
+    pcaMove(3, 15, 70, 2)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
@@ -215,7 +215,7 @@ def scenario():
 # M3 : descend à 30 lentement 
     pcaMove(3, 70, 20, 0)
 # M3 : remonte à 60 brusquement
-    pcaMove(3, 20, 50,, 2)
+    pcaMove(3, 20, 50, 2)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
@@ -235,9 +235,9 @@ def scenario():
     pcaMove(1, 5, -5, 1)
     pcaMove(1, -5, 0, 1)
 # M3 : remonte à 80 brusquement
-    pcaMove(3, 20, 70,, 2)
+    pcaMove(3, 20, 70, 2)
 # M3 : descend à 40 brusquement
-    pcaMove(3, 70, 30,, 2)
+    pcaMove(3, 70, 30, 2)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
@@ -250,9 +250,9 @@ def scenario():
     pcaMove(1, 5, -5, 1)
     pcaMove(1, -5, 0, 1)
 # M3 : remonte à 80 brusquement
-    pcaMove(3, 30, 70,, 2)
+    pcaMove(3, 30, 70, 2)
 # M3 : descend à 30 brusquement
-    pcaMove(3, 70, 20,, 2)
+    pcaMove(3, 70, 20, 2)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
@@ -265,9 +265,9 @@ def scenario():
     pcaMove(1, 5, -5, 1)
     pcaMove(1, -5, 0, 1)
 # M3 : remonte à 45 brusquement
-    pcaMove(3, 20, 35,, 2)
+    pcaMove(3, 20, 35, 2)
 # M3 : descend à 30 brusquement
-    pcaMove(3, 35, 20,, 2)
+    pcaMove(3, 35, 20, 2)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
@@ -282,7 +282,7 @@ def scenario():
     pcaMove(1, 5, -5, 1)
     pcaMove(1, -5, 0, 1)
 # M3 : descend à 20 brusquement sur la feuille
-    pcaMove(3, 20, 10,, 2)
+    pcaMove(3, 20, 10, 2)
 # M1 : 2 petits mouvements 45 - 50 retour au centre 45
     pcaMove(1, -5, 5, 1)
     pcaMove(1, 5, -5, 1)
@@ -298,9 +298,9 @@ def scenario():
     pcaMove(1, 5, -5, 1)
     pcaMove(1, -5, 0, 1)
 # M3 : remonte à 30 brusquement
-    pcaMove(3, 10, 20,, 2)
+    pcaMove(3, 10, 20, 2)
 # M3 : descend à 20 brusquement sur la feuille
-    pcaMove(3, 20, 10,, 2)
+    pcaMove(3, 20, 10, 2)
 # M1 : 2 petits mouvements 45 - 50 retour au centre 45
     pcaMove(1, -5, 5, 1)
     pcaMove(1, 5, -5, 1)
@@ -359,9 +359,9 @@ def scenario():
     pcaMove(1, 10, -10, 1)
     pcaMove(1, -10, 0, 1)
 # M3 : remonte à 30 brusquement
-    pcaMove(3, 0, 20,, 2)
+    pcaMove(3, 0, 20, 2)
 # M3 : descend à 20 brusquement sur la feuille
-    pcaMove(3, 20, 0,, 2)
+    pcaMove(3, 20, 0, 2)
 
 # function main
 def main():
