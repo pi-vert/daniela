@@ -360,7 +360,7 @@ def scenario():
     pcaMove(3, 30, 20, step, 0.001)
 
 def stop():
-    pcaSet(3,10);
+    pcaSet(3,30);
     pcaSet(2,70);
     pcaSet(1,45);
     pcaSet(0,45);
@@ -371,7 +371,7 @@ def stop():
     
 # function main
 def main():
-    pcaSet(3,10)
+    pcaSet(3,30)
     pcaSet(2,70)
     pcaSet(1,45)
     pcaSet(0,45)
