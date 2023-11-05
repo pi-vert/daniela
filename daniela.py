@@ -68,11 +68,11 @@ def scenario():
 # M3 : descend à 30 lentement
     pcaMove(3, 70, 20, step, 0.01)
 # M3 : 3 petits mouvements de bas en haut 30 - 60  - se bloque à 60
-    pcaMove(3, 20, 60, step, 0.001)
-    pcaMove(3, 60, 20, step, 0.001)
-    pcaMove(3, 20, 60, step, 0.001)
-    pcaMove(3, 60, 20, step, 0.001)
-    pcaMove(3, 20, 60, step, 0.001)
+    pcaMove(3, 10, 60, step, 0.001)
+    pcaMove(3, 60, 10, step, 0.001)
+    pcaMove(3, 10, 60, step, 0.001)
+    pcaMove(3, 60, 10, step, 0.001)
+    pcaMove(3, 10, 60, step, 0.001)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, step, 0.001)
     pcaMove(2, 20, 0, step, 0.001)
@@ -86,7 +86,7 @@ def scenario():
     pcaMove(2, 0, 20, step, 0.001)
     pcaMove(2, 20, 0, step, 0.001)
 # M3  : remonte brusquement à 100
-    pcaMove(3, 20, 70, step, 0.0001)
+    pcaMove(3, 0, 70, step, 0.0001)
 # M2 : 2 petits mouvements lent de 80 à 110 - revient à 90 (centre)
     pcaMove(2, -10, 20, step, 0.001)
     pcaMove(2, 20, -10, step, 0.001)
@@ -371,9 +371,9 @@ def scenario():
     pcaMove(1, 10, -10, step, 0.01)
     pcaMove(1, -10, 0, step, 0.01)
 # M3 : remonte à 30 brusquement
-    pcaMove(3, 10, 20, step, 0.001)
+    pcaMove(3, 0, 20, step, 0.001)
 # M3 : descend à 20 brusquement sur la feuille
-    pcaMove(3, 20, 10, step, 0.001)
+    pcaMove(3, 20, 0, step, 0.001)
 
 def stop():
     pcaStop(3);
@@ -383,13 +383,15 @@ def stop():
     
 # function main
 def main():
-    pcaSet(3,REF_ANG[3]);
-    pcaSet(2,REF_ANG[2]);
-    pcaSet(1,REF_ANG[1]);
+    pcaSet(3,60);
     pcaSet(0,REF_ANG[0]);
+    pcaSet(1,REF_ANG[1]);
+    pcaSet(2,REF_ANG[2]);
+    pcaSet(3,REF_ANG[3]);
     time.sleep(1)
     scenario()
     stop()    
+    
 if __name__ == '__main__':
     init()
     main()
