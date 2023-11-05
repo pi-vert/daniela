@@ -27,7 +27,7 @@ def pcaStop(motor):
     pca.servo[motor].angle=None #disable channel
         
 # Deplacement
-def pcaMove(motor,angle1,angle2,step,sleep):
+def pcaMove(motor,angle1,angle2,step,speed):
     angle1 = angle1 + REF_ANG[motor]
     angle2 = angle2 + REF_ANG[motor]
     print ( str(motor)+' '+str(angle1)+' -> '+str(angle2) )
@@ -36,13 +36,13 @@ def pcaMove(motor,angle1,angle2,step,sleep):
         while (angle<angle2):
             pca.servo[motor].angle = angle
             angle = angle + step
-            time.sleep(sleep)
+            time.sleep(SPEED[speed])
     if (angle1>angle2):
         angle = angle2
         while (angle>angle1):
             pca.servo[motor].angle = angle
             angle = angle - step
-            time.sleep(sleep)
+            time.sleep(SPEED[speed])
 
 # Deplacement
 def pcaRun(motor,angle1,angle2,speed):
