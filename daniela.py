@@ -56,14 +56,8 @@ def pcaRun(motor,angle1,angle2,speed):
 def init():
     for i in range(nbPCAServo):
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
-    
-# function main
-def main():
-    pcaSet(3,10)
-    pcaSet(2,70)
-    pcaSet(1,45)
-    pcaSet(0,45)
-    time.sleep(1)
+
+def scenario():
     step = 0.05 
 # M3  : commence à 100
     pcaMove(3, 10, 80, step, 0.001)
@@ -365,7 +359,7 @@ def main():
 # M3 : descend à 20 brusquement sur la feuille
     pcaMove(3, 30, 20, step, 0.001)
 
-# Stop: repos
+def stop():
     pcaSet(3,10);
     pcaSet(2,70);
     pcaSet(1,45);
@@ -374,6 +368,15 @@ def main():
     pcaStop(2);
     pcaStop(1);
     pcaStop(0);
+    
+# function main
+def main():
+    pcaSet(3,10)
+    pcaSet(2,70)
+    pcaSet(1,45)
+    pcaSet(0,45)
+    time.sleep(1)
+    stop()
     
 if __name__ == '__main__':
     init()
