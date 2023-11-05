@@ -358,13 +358,12 @@ def scenario():
     pcaMove(1, 10, -10, step, 0.01)
     pcaMove(1, -10, 0, step, 0.01)
 # M1 : 3 grands mouvements 45 - 55 retour au centre 45
-    pcaMove(1, -5, 5, step, 0.001)
-    pcaMove(1, 5, -5, step, 0.001)
-    pcaMove(1, -5, 5, step, 0.001)
-    pcaMove(1, 5, -5, step, 0.001)
-    pcaMove(1, -5, 5, step, 0.001)
-    pcaMove(1, 5, -5, step, 0.001)
-    pcaMove(1, -5, 0, step, 0.001)
+    pcaMove(1, 0, 10, step, 0.001)
+    pcaMove(1, 10, 0, step, 0.001)
+    pcaMove(1, 0, 10, step, 0.001)
+    pcaMove(1, 10, 0, step, 0.001)
+    pcaMove(1, 0, 10, step, 0.001)
+    pcaMove(1, 10, 0, step, 0.001)
 # M1 : 2 petit mouvements  45 - 50   retour au centre 45
     pcaMove(1, -10, 10, step, 0.01)
     pcaMove(1, 10, -10, step, 0.01)
@@ -390,7 +389,7 @@ def main():
     pcaSet(0,REF_ANG[0]);
     time.sleep(1)
     scenario()
-    
+    stop()    
 if __name__ == '__main__':
     init()
     main()
