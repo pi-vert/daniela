@@ -23,6 +23,7 @@ def pcaSet(motor,angle):
     pca.servo[motor].angle = angle
 
 def pcaStop(motor):
+    pca.servo[motor].angle = REF_ANG[motor]
     pca.servo[motor].angle=None #disable channel
         
 # Deplacement
