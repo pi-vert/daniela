@@ -3,14 +3,14 @@ import sys
 import time    #https://docs.python.org/fr/3/library/time.html
 from adafruit_servokit import ServoKit    #https://circuitpython.readthedocs.io/projects/servokit/en/latest/
 #Constants
-nbPCAServo=16
+nbPCAServo=4
 #Parameters
 MIN_IMP  =[500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500]
 MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500]
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 REF_ANG  =[80,90,70,20] 
-SPEED = [ 0.02, 0.01, 0.005 ]
+SPEED = [ 0.2, 0.1, 0.05 ]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
 
@@ -63,7 +63,7 @@ def init():
         pca.servo[i].set_pulse_width_range(MIN_IMP[i] , MAX_IMP[i])
 
 def scenario():
-    step = 0.05 
+    step = 0.01 
 # M3  : commence à 100
     pcaMove(3, 0, 70, step, 1)
 # M3 : descend à 30 lentement
