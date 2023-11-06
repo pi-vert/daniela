@@ -10,7 +10,7 @@ MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 250
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 REF_ANG  =[90,90,70,10] 
-SPEED = [ 0.1, 1, 10 ]
+SPEED = [ 0.001, 0.01, 0.1 ]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
 
@@ -29,7 +29,7 @@ def pcaStop(motor):
         
 # Deplacement
 def pcaMove(motor,angle1,angle2,speed):
-    step = 0.1*speed 
+    step = SPEED[speed] 
     angle1 = angle1 + REF_ANG[motor]
     angle2 = angle2 + REF_ANG[motor]
     print ( str(motor)+' '+str(speed)+' '+str(angle1)+' -> '+str(angle2) )
