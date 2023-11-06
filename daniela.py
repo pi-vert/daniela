@@ -29,7 +29,7 @@ def pcaStop(motor):
         
 # Deplacement
 def pcaMove(motor,angle1,angle2,speed):
-    step = 0.0001*speed 
+    step = 0.001*speed 
     angle1 = angle1 + REF_ANG[motor]
     angle2 = angle2 + REF_ANG[motor]
     print ( str(motor)+' '+str(angle1)+' -> '+str(angle2) )
