@@ -69,14 +69,14 @@ def scenario():
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
 # M3 : descend à 30 lentement
-    pcaMove(3, 40, 30, 0)
+    pcaMove(3, 40, 30, 1)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
 # M3  : remonte brusquement à 100
-    pcaMove(3, 0, 60, 2)
+    pcaMove(3, 30, 70, 2)
 # M2 : 2 petits mouvements lent de 80 à 110 - revient à 90 (centre)
     pcaMove(2, -10, 20, 0)
     pcaMove(2, 20, -10, 0)
