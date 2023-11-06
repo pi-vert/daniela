@@ -52,7 +52,7 @@ def init():
 def scenario():
     pcaMove(0, 0, 0, 1)
 # M3  : commence à 100
-    pcaMove(0, 5, (-)30, 1)
+    pcaMove(0, 10, 5, 1)
     pcaMove(3, 0, 70, 1)
 # M3 : descend à 30 lentement
     pcaMove(3, 70, 30, 0)
