@@ -22,16 +22,14 @@ def main():
     pcaMove(int(sys.argv[1]),int(sys.argv[2]),int(sys.argv[3]),float(sys.argv[4]));
 
 # function pcaScenario
-def pcaMove(motor,angle1,angle2,sleep):
+def pcaMove(motor,angle1,angle2,step):
     angle=angle1;
     while angle < angle2:
         pca.servo[motor].angle = angle
-        angle = angle + 0.01
-        time.sleep(sleep)
+        angle = angle + step
     while angle > angle1:
         pca.servo[motor].angle = angle
-        angle = angle - 0.01
-        time.sleep(sleep)
+        angle = angle - step
 
 if __name__ == '__main__':
     init()
