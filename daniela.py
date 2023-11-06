@@ -10,7 +10,7 @@ MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 250
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 REF_ANG  =[90,90,70,10] 
-SPEED = [ 0, 0, 0 ]
+SPEED = [ 0.1, 1, 10 ]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
 
@@ -29,7 +29,7 @@ def pcaStop(motor):
         
 # Deplacement
 def pcaMove(motor,angle1,angle2,speed):
-    step = 0.05 /(speed+1) 
+    step = 0.0001*speed 
     angle1 = angle1 + REF_ANG[motor]
     angle2 = angle2 + REF_ANG[motor]
     print ( str(motor)+' '+str(angle1)+' -> '+str(angle2) )
@@ -52,22 +52,23 @@ def init():
 def scenario():
     pcaMove(0, 0, 0, 1)
 # M3  : commence à 100
-    pcaMove(3, 0, 70, 1)
+    pcaMove(3, 30, 70, 1)
 # M3 : descend à 30 lentement
-    pcaMove(3, 70, 20, 0)
+    pcaMove(3, 70, 30, 0)
 # M3 : 3 petits mouvements de bas en haut 30 - 60  - se bloque à 60
-    pcaMove(3, 10, 60, 1)
-    pcaMove(3, 60, 10, 1)
-    pcaMove(3, 10, 60, 1)
-    pcaMove(3, 60, 10, 1)
-    pcaMove(3, 10, 60, 1)
+    pcaMove(3, 30, 60, 1)
+    pcaMove(3, 60, 30, 1)
+    pcaMove(3, 30, 60, 1)
+    pcaMove(3, 60, 30, 1)
+    pcaMove(3, 30, 60, 1)
+    pcaMove(3, 60, 30, 1)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
 # M3 : descend à 30 lentement
-    pcaMove(3, 40, 20, 0)
+    pcaMove(3, 40, 30, 0)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
     pcaMove(2, 0, 20, 1)
     pcaMove(2, 20, 0, 1)
