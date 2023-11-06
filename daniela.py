@@ -29,10 +29,10 @@ def pcaStop(motor):
         
 # Deplacement
 def pcaMove(motor,angle1,angle2,speed):
-    step = 0.01*speed 
+    step = 0.1*speed 
     angle1 = angle1 + REF_ANG[motor]
     angle2 = angle2 + REF_ANG[motor]
-    print ( str(motor)+' '+str(angle1)+' -> '+str(angle2) )
+    print ( str(motor)+' '+str(speed)+' '+str(angle1)+' -> '+str(angle2) )
     if (angle1<angle2):
         angle = angle1
         while (angle<angle2):
@@ -111,13 +111,13 @@ def scenario():
 # pause
     time.sleep(1)
 # M3 : remonte à 30 brusquement
-    pcaMove(3, 10, 20, 2)
+    pcaMove(3, 20, 50, 2)
 # M3 : descend à 20 lentement (se pose sur la feuille)
-    pcaMove(3, 10, 20, 0)
+    pcaMove(3, 50, 20, 0)
 # M3 : remonte à 40 brusquement
-    pcaMove(3, 10, 30, 2)
+    pcaMove(3, 20, 50, 2)
 # M3 : descend à 30 lentement 
-    pcaMove(3, 30, 20, 0)
+    pcaMove(3, 50, 20, 0)
 # M3 : remonte à 60 brusquement
     pcaMove(3, 20, 50, 2)
 # M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
