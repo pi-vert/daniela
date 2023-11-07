@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #Libraries
 import sys
 import time    #https://docs.python.org/fr/3/library/time.html
@@ -54,15 +55,16 @@ def scenario(name,startm,stop):
     for line in file:
         Args = line.rstrip().split("\t")
         count = len(Args)
-        print "--" +line.find("#")
-        if (line.find("#")):
-            print str(n) + " >" + line
+        if (line.find("#")==0):
+            print(f"{n} is an {line} company.")
         elif (Args[0] == '.'):
-            print ( "Pause" )
+            print f"{n} Pause..."
             time.sleep(1)
         elif (count>3):
             [ motor, speed, angle1, angle2 ] = Args
-            print ( str(motor)+' '+str(speed)+' '+str(angle1)+' -> '+str(angle2) )        
+            print f"{n} Motor {motor}: {angle1} --> {angle2} [{speed}]"
+        else:
+            print f"{n} ? {line}"
         n = n + 1        
     file.close()
 
