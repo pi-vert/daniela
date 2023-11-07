@@ -1,0 +1,315 @@
+# M0  : déplacer 
+0	0	0	1
+# M3  : commence à 100
+0	60	90	1
+3	0	70	1
+# M3 : descend à 30 lentement
+3	70	30	0
+# M3 : 3 petits mouvements de bas en haut 30 - 60  - se bloque à 60
+3	30	60	1
+3	60	30	1
+3	30	60	1
+3	60	30	1
+3	30	60	1
+3	60	30	1
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3 : descend à 30 lentement
+3	40	30	1
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3  : remonte brusquement à 100
+3	30	70	2
+# M2 : 2 petits mouvements lent de 80 à 110 - revient à 90 (centre)
+2	-10	20	0
+2	20	-10	0
+2	-10	20	0
+2	20	0	0
+# M3 : descend à 45 lentement
+3	70	35	0
+# M1 : 2 petits mouvements 40 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M3 : descend à 35 lentement
+3	35	25	0
+# M1 : 2 petits mouvements 40 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M3 : descend à 20 lentement (se pose sur la feuille
+3	25	10	0
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+1	5	-5	1
+1	-5	0	1
+# pause
+.
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+1	5	-5	1
+1	-5	0	1
+# pause
+.
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+# pause
+.
+# M3 : remonte à 30 brusquement
+3	20	50	2
+# M3 : descend à 20 lentement (se pose sur la feuille
+3	50	20	0
+# M3 : remonte à 40 brusquement
+3	20	50	2
+# M3 : descend à 30 lentement 
+3	50	20	0
+# M3 : remonte à 60 brusquement
+3	20	50	2
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3 : descend à 40 lentement 
+3	50	30	0
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3 : descend à 30 lentement 
+3	50	20	0
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3 : remonte à 40 brusquement
+3	20	30	2
+# M1: 2 Grand balayement de gauche à droite 35- 55 retour au centre
+1	-10	10	1
+1	10	-10	1
+1	-10	10	1
+1	10	-10	1
+1	-10	0	1
+# M3 : remonte à 60 brusquement
+3	30	50	2
+# M1: 2 Grand balayement de gauche à droite 35- 55 retour au centre
+1	-10	10	1
+1	10	-10	1
+1	-10	10	1
+1	10	-10	1
+1	-10	0	1
+# M3 : descend à 30 lentement
+3	60	30	0
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3 : descend à 20 lentement (se pose sur la feuille
+3	20	10	0
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+1	0	5	1
+1	5	0	1
+# pause
+.
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+1	0	5	1
+1	5	0	1
+# pause
+.
+# M1 : 1 petits mouvements 45 - 50 retour au centre 45
+1	0	5	1
+1	5	0	1
+# pause
+.
+# M3 : remonte à 30 brusquement
+3	10	20	1
+# M3 : descend à 20 lentement (se pose sur la feuille
+3	20	10	0
+# M3 : remonte à 40 brusquement
+3	10	30	2
+# M3 : descend à 30 lentement 
+3	30	20	0
+# M3 : remonte à 60 brusquement
+3	20	50	2
+# M3 : descend à 30 lentement 
+3	50	20	0
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3 : remonte à 70 brusquement
+3	50	60	2
+# M3 : descend à 25 lentement 
+3	60	15	0
+# M3 : remonte à 80 brusquement
+3	15	70	2
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+2	0	20	1
+2	20	0	1
+1	-5	0	1
+# M3 : descend à 30 lentement 
+3	70	20	0
+# M3 : remonte à 60 brusquement
+3	20	50	2
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M3 : descend à 30 lentement 
+3	50	20	0
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M3 : remonte à 80 brusquement
+3	20	70	2
+# M3 : descend à 40 brusquement
+3	70	30	2
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M3 : remonte à 80 brusquement
+3	30	70	2
+# M3 : descend à 30 brusquement
+3	70	20	2
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M3 : remonte à 45 brusquement
+3	20	35	2
+# M3 : descend à 30 brusquement
+3	35	20	2
+# M2 : 2 petits mouvements vers la droite donc de 90 à 110 - revient à 90 (centre)
+2	0	20	1
+2	20	0	1
+2	0	20	1
+2	20	0	1
+# M1 : 3 petits mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M3 : descend à 20 brusquement sur la feuille
+3	20	10	2
+# M1 : 2 petits mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# pause
+.
+# M1 : 2 grands mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M3 : remonte à 30 brusquement
+3	10	20	2
+# M3 : descend à 20 brusquement sur la feuille
+3	20	10	2
+# M1 : 2 petits mouvements 45 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# pause
+.
+# M1 : 2 grands mouvements 40 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M1 : 3 grands mouvements 45 - 55 retour au centre 45
+1	-10	10	1
+1	10	-10	1
+1	-10	10	1
+1	10	-10	1
+1	-10	10	1
+1	10	-10	1
+1	-10	0	1
+# M1 : 2 grands mouvements 40 - 50 retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# pause
+.
+# M1 : 2 petit mouvements 45 - 50   retour au centre 45
+1	-5	5	1
+1	5	-5	1
+1	-5	5	1
+1	5	-5	1
+1	-5	0	1
+# M1 : 2 grands mouvements 40 - 50 retour au centre 45
+1	-10	10	1
+1	10	-10	1
+1	-10	10	1
+1	10	-10	1
+1	-10	10	1
+1	10	-10	1
+1	-10	0	1
+# M1 : 3 grands mouvements 45 - 55 retour au centre 45
+1	0	10	1
+1	10	0	1
+1	0	10	1
+1	10	0	1
+1	0	10	1
+1	10	0	1
+# M1 : 2 petit mouvements  45 - 50   retour au centre 45
+1	-10	10	1
+1	10	-10	1
+1	-10	10	1
+1	10	-10	1
+1	-10	0	1
+# M3 : remonte à 30 brusquement
+3	0	20	2
+# M3 : descend à 20 brusquement sur la feuille
+3	20	0	2
