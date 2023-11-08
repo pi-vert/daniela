@@ -52,10 +52,10 @@ def init():
 def scenario():
     pcaMove(0, 0, 0, 1)
 # M3  : commence à 100
-    pcaMove(0, 60, 90, 1)
-    pcaMove(3, 0, 70, 1)
+    pcaMove(0, 60, 70, 1)
+    pcaMove(3, 30, 60, 1)
 # M3 : descend à 30 lentement
-    pcaMove(3, 70, 30, 0)
+    pcaMove(3, 60, 30, 0)
 # M3 : 3 petits mouvements de bas en haut 30 - 60  - se bloque à 60
     pcaMove(3, 30, 60, 1)
     pcaMove(3, 60, 30, 1)
