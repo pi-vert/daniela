@@ -12,7 +12,7 @@ MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 250
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 REF_ANG  =[90,90,70,10] 
-SPEED = [ 0.01, 0.05, 0.25 ]
+SPEED = [ 0.01, 0.05, 0.2 ]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
 
@@ -39,12 +39,12 @@ def pcaMove(motor,angle1,angle2,speed):
         angle = angle1
         while (angle<angle2):
             pca.servo[motor].angle = angle
-            angle = angle + steps 
+            angle = angle + step 
     if (angle1>angle2):
         angle = angle2
         while (angle>angle1):
             pca.servo[motor].angle = angle
-            angle = angle - steps
+            angle = angle - step
             
 # function init
 def init():
