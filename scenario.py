@@ -1,7 +1,8 @@
 #!/usr/bin/python
 #Libraries
 import sys
-import time    #https://docs.python.org/fr/3/library/time.html
+import time
+import math
 from adafruit_servokit import ServoKit    #https://circuitpython.readthedocs.io/projects/servokit/en/latest/
 #Constants
 nbPCAServo=4
@@ -11,7 +12,7 @@ MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 250
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 REF_ANG  =[90,90,70,10] 
-SPEED = [ 0.001, 0.01, 0.1 ]
+SPEED = [ 0.01, 0.1, 1 ]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
 
@@ -26,13 +27,14 @@ def pcaSet(motor,angle):
 
 def pcaStop(motor):
     pca.servo[motor].angle = REF_ANG[motor]
-    pca.servo[motor].angle=None #disable channel
+    pca.servo[motor].angle = None #disable channel
         
 # Deplacement
 def pcaMove(motor,angle1,angle2,speed):
     step = SPEED[speed] 
     angle1 = angle1 + REF_ANG[motor]
     angle2 = angle2 + REF_ANG[motor]
+    steps = abs(angle2 - angle1)*SPEED[speed]
     if (angle1<angle2):
         angle = angle1
         while (angle<angle2):
@@ -61,24 +63,25 @@ def scenario(name,start,stop):
         Args = line.split("\t")
         count = len(Args)
         if (line.find("#")==0):
-            print(f"{n} {line}")
+            print(f"     {line}")
         elif (Args[0] == '.'):
-            print(f"{n} ...")
+            print(f"{n:4} ...")
             time.sleep(1)
         elif (count>3):
             [ motor, angle1, angle2, speed ] = Args
-            print(f"{n} + Motor {motor}: {angle1} --> {angle2} [{speed}]")
+            s = ">>>"[0:int(speed)+1]
+            print(f"{n:4} + [{motor}] {angle1: >4}  {s: <3}  {angle2: >4}")
             pcaMove(int(motor),int(angle1),int(angle2),int(speed))
         elif (count>1):
             [ motor, angle ] = Args
-            print(f"{n} + Motor {motor}: {angle}")
+            print(f"{n:4} + [{motor}] {angle: >4}")
             pcaSet(int(motor),int(angle))
         elif (count>0):
             [ motor ] = Args
-            print(f"{n} - Motor {motor}")
+            print(f"{n:4} - [{motor}]")
             pcaStop(int(motor))
         else:
-            print(f"{n} ? {line}")
+            print(f"{n:4} ? {line}")
     file.close()
 
 # function main
@@ -87,11 +90,11 @@ def main():
     if (argn>3):
         stop = int(sys.argv[3])
     else:
-        stop = 10000
+        stop = 9999
     if (argn>2):
         start = int(sys.argv[2])
     else:
-        start = 10000
+        start = 1
     if (argn>1):
         filename = sys.argv[1]
     else:
