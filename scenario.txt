@@ -6,9 +6,9 @@
 # M3  : commence à 100
 0	70	45	1
 3	0	70	1
-2  -30  30  0
-2  -30  30  1
-2  -30  30  2
+2	-30	30	0
+2	-30	30	1
+2	-30	30	2
 # M3 : descend à 30 lentement
 3	70	30	0
 # M3 : 3 petits mouvements de bas en haut 30 - 60  - se bloque à 60
