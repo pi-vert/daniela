@@ -1,19 +1,24 @@
 # Daniela
 
 ## Scenario.py
+### Appel 
+python scenario.py <scenario> <debut> <fin>
 
-Arguments:
+### Arguments
 - Scenario (défaut: scenario.txt)
 - Départ (défaut: 1)
-- Fin (défaut 1000)
+- Fin (défaut 9999)
 
-Exemple:
+### Format
+Déplacement du moteur
+<moteur> <debut> <fin> <vitesse>
 
-## Installation
+### Sortie
+
+
+## Installation système
+Raspbian Bookworm
 - sudo apt install git
-- sudo apt install build-essential git curl
-- bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
-- sudo apt install -y i2c-tools python3-smbus
-- sudo apt install python3-pip
-- sudo pip3 install adafruit-circuitpython-servokit
-- sudo pip3 install psutil
+- git clone https://github.com/pi-vert/daniela.git
+- cd daniela
+- ./install.sh
