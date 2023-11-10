@@ -79,7 +79,7 @@ def scenario(name,start,stop):
             angle2 = int(angle2)
             # Rattrapage si il y a un ecart avec la derniere position
             if (angle1!=LST_ANG[motor]):
-                pcaMove(motor,angle1,angle2,int(speed))
+                pcaMove(motor,LST_ANG[motor],angle1,int(speed))
             pcaMove(motor,angle1,angle2,int(speed))
             LST_ANG[motor] = angle2
         elif (count>1):
