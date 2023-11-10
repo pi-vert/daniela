@@ -62,11 +62,8 @@ def scenario(name,start,stop):
             continue
         if n>stop:
             break
-        #Args = line.split()
         Args = re.split(r'\s+', line)
-        print(Args)
         count = len(Args)
-        print (f"COUNT {count}")
         if (line.find("#")==0):
             print(f"     {line}")
         elif (Args[0] == '.'):
