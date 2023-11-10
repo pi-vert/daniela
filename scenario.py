@@ -3,7 +3,8 @@
 import sys
 import time
 import math
-from adafruit_servokit import ServoKit    #https://circuitpython.readthedocs.io/projects/servokit/en/latest/
+import re
+from adafruit_servokit import ServoKit    
 #Constants
 nbPCAServo=4
 #Parameters
@@ -12,6 +13,7 @@ MAX_IMP  =[2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 2500, 250
 MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 REF_ANG  =[90,90,70,10] 
+LST_ANG  =[ 0, 0, 0, 0]
 SPEED = [ 0.01, 0.05, 0.2 ]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
@@ -30,7 +32,7 @@ def pcaStop(motor):
     pca.servo[motor].angle = None #disable channel
         
 # Deplacement
-def pcaMove(motor,angle1,angle2,speed):
+def pcaMove(motor,angle1,angle2,speed=1):
     step = SPEED[speed] 
     angle1 = angle1 + REF_ANG[motor]
     angle2 = angle2 + REF_ANG[motor]
@@ -43,9 +45,9 @@ def pcaMove(motor,angle1,angle2,speed):
     if (angle1>angle2):
         angle = angle1
         while (angle>angle2):
-            pca.servo[motor].angle = angle
+            ##pca.servo[motor].angle = angle
             angle = angle - step
-            
+    
 # function init
 def init():
     for i in range(nbPCAServo):
@@ -60,8 +62,11 @@ def scenario(name,start,stop):
             continue
         if n>stop:
             break
-        Args = line.split("\t")
+        #Args = line.split()
+        Args = re.split(r'\s+', line)
+        print(Args)
         count = len(Args)
+        print (f"COUNT {count}")
         if (line.find("#")==0):
             print(f"     {line}")
         elif (Args[0] == '.'):
@@ -71,11 +76,21 @@ def scenario(name,start,stop):
             [ motor, angle1, angle2, speed ] = Args
             s = ">>>"[0:int(speed)+1]
             print(f"{n:4} + [{motor}] {angle1: >4}  {s: <3}  {angle2: >4}")
-            pcaMove(int(motor),int(angle1),int(angle2),int(speed))
+            motor = int(motor)
+            angle1 = int(angle1)
+            angle2 = int(angle2)
+            # Rattrapage si il y a un ecart avec la derniere position
+            if (angle1!=LST_ANG[motor]):
+                pcaMove(motor,angle1,angle2,int(speed))
+            pcaMove(motor,angle1,angle2,int(speed))
+            LST_ANG[motor] = angle2
         elif (count>1):
             [ motor, angle ] = Args
             print(f"{n:4} + [{motor}] {angle: >4}")
-            pcaSet(int(motor),int(angle))
+            motor = int(motor)
+            angle = int(angle)
+            pcaMove(motor,LST_ANG[motor],angle)
+            LST_ANG[motor] = angle
         elif (count>0):
             [ motor ] = Args
             print(f"{n:4} - [{motor}]")
