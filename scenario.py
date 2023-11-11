@@ -14,7 +14,7 @@ MIN_ANG  =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 MAX_ANG  =[180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180, 180]
 REF_ANG  =[90,90,70,10] 
 LST_ANG  =[ 0, 0, 0, 0]
-SPEED = [ 0.01, 0.05, 0.2 ]
+SPEED = [ 0.01, 0.025, 0.2 ]
 #Objects pca=ServoKit(channels=16, address=40)
 pca = ServoKit(channels=16)
 
